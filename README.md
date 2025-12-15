@@ -38,7 +38,7 @@
       <p><b>📂 <a href="./General_Config">General Config</a></b></p>
       <ul>
         <li>💻 <b>适合</b>: PC / Mac / 手机日常用户</li>
-        <li>🚀 <b>特点</b>: 包含 多位等大佬热门作品。</li>
+        <li>🚀 <b>特点</b>: 包含 HenryChiao, 666OS, JohnsonRan 等大佬作品。</li>
         <li>🔥 <b>用途</b>: 主力推荐，含分流、去广告、故障转移。</li>
       </ul>
     </td>
@@ -49,7 +49,7 @@
       <p><b>📂 <a href="./Smart_Mode">Smart Mode</a></b></p>
       <ul>
         <li>🏠 <b>适合</b>: OpenClash、软路由、SmartDNS</li>
-        <li>🛠️ <b>特点</b>: 侧重smart规则的延伸。</li>
+        <li>🛠️ <b>特点</b>: 侧重 DNS 优化与底层网络接管。</li>
         <li>🧠 <b>用途</b>: 适合家庭网络网关设备。</li>
       </ul>
     </td>
@@ -92,15 +92,71 @@
 
 ## 🔗 致谢与来源 (Credits)
 
-本仓库文件自动聚合自以下开源项目，特别感谢以下作者的无私分享：
+本仓库文件自动聚合自以下开源项目，特别感谢以下作者的无私分享。
+**请大家给原作者的项目点个 Star 🌟 支持！**
 
 <details>
-<summary><strong>点击展开查看完整致谢列表 (Click to expand)</strong></summary>
+<summary><strong>👉 点击展开查看完整致谢列表 (Click to expand)</strong></summary>
 
 ### ✍️ 配置作者 (Config Authors)
-* [HenryChiao](https://github.com/HenryChiao)
-* [666OS](https://github.com/666OS)
-* [JohnsonRan](https://github.com/JohnsonRan)
+
+> 以下链接直达作者的原项目仓库，Star 数据实时获取。
+
+* **HenryChiao** (MIHOMO_AIO)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/HenryChiao/MIHOMO_AIO?style=social)](https://github.com/HenryChiao/MIHOMO_AIO)
+* **666OS** (YYDS)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/666OS/YYDS?style=social)](https://github.com/666OS/YYDS)
+* **JohnsonRan** (CRules)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/JohnsonRan/CRules?style=social)](https://github.com/JohnsonRan/CRules)
+* **yiteei** (Share)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/yiteei/Share?style=social)](https://github.com/yiteei/Share)
+* **liandu2024** (Little)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/liandu2024/little?style=social)](https://github.com/liandu2024/little)
+* **Lanlan13-14** (Rules)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/Lanlan13-14/Rules?style=social)](https://github.com/Lanlan13-14/Rules)
+* **yyhhyyyyyy** (SelfProxy)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/yyhhyyyyyy/selfproxy?style=social)](https://github.com/yyhhyyyyyy/selfproxy)
+* **echs-top** (Proxy)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/echs-top/proxy?style=social)](https://github.com/echs-top/proxy)
+* **qichiyuhub** (Rule)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/qichiyuhub/rule?style=social)](https://github.com/qichiyuhub/rule)
+* **iKeLee** (Source: luestr/ProxyResource)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/luestr/ProxyResource?style=social)](https://github.com/luestr/ProxyResource)
+* **Fᴜғᴜ** (Source: sunfing/iNg)
+    <br>
+    [![Stars](https://img.shields.io/github/stars/sunfing/iNg?style=social)](https://github.com/sunfing/iNg)
+
+### 📱 模块来源 (Mobile Modules)
+
+* **Surfing**
+    <br>
+    [![Stars](https://img.shields.io/github/stars/GitMetaio/Surfing?style=social)](https://github.com/GitMetaio/Surfing)
+* **AkashaProxy**
+    <br>
+    [![Stars](https://img.shields.io/github/stars/akashaProxy/akashaProxy?style=social)](https://github.com/akashaProxy/akashaProxy)
+* **ClashMix**
+    <br>
+    [![Stars](https://img.shields.io/github/stars/AXEVO/Clash-MIX?style=social)](https://github.com/AXEVO/Clash-MIX)
+* **BoxProxy**
+    <br>
+    [![Stars](https://img.shields.io/github/stars/boxproxy/box?style=social)](https://github.com/boxproxy/box)
+
+### 📚 参考文档
+* [Metacubex Wiki](https://wiki.metacubex.one/)
+
+</details>
+
+> ⚠️ **免责声明**: 本仓库仅作为配置文件的自动化搬运与归档工具，所有配置文件的版权归原作者所有。
 * [yiteei](https://github.com/yiteei)
 * [liandu2024](https://github.com/liandu2024)
 * [Lanlan13-14](https://github.com/Lanlan13-14/Rules)
