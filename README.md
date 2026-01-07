@@ -105,7 +105,7 @@
 | **MacOS** | **Sparkle** | 🟢 | 原生感极强，支持状态栏切换，核心成员开发。 | 暂无明显缺点，Swift 开发。 | [Github](https://github.com/xishang0128/sparkle/releases) |
 | **MacOS** | **Clash Verge Rev** | 🟢 | 功能强大，覆写设置丰富。 | 与 Mac 状态栏融合度一般，不如前两者丝滑。 | [Github](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
 | **MacOS** | Clash Party | 🟡 | 丝滑度高，原 Mihomo Party 分支。 | 存在项目所有权变更风险，目前迭代较快。 | [Github](https://github.com/mihomo-party-org/mihomo-party/releases) |
-| **MacOS** | ClashMac | 🟡 | SwiftUI 开发，美观轻量，类 ClashX Meta 逻辑。 | 闭源项目。 | [Github](https://github.com/666OS/ClashMac) |
+| **MacOS** | ClashMac | 🟡 | SwiftUI 开发，美观轻量，类 ClashX Meta 逻辑。 | 对闭源过敏症来说是部分闭源项目。 | [Github](https://github.com/666OS/ClashMac) |
 | **MacOS** | ClashX Meta | 🟡 | 官方维护，稳定性尚可。 | UI 审美较为独特，易与其他 App 冲突，已不再是首选。 | [Github](https://github.com/MetaCubeX/ClashX.Meta/releases) |
 |  |  |  |  |  |  |
 | **Windows** | **FlClash** | 🟢 | 极度轻量，更新极其勤快，功能全。 | UI 风格偏移动端 (Material Design)。 | [Github](https://github.com/chen08209/FlClash/releases) |
