@@ -158,14 +158,14 @@ FilterAR: &FilterAR "(?i)(?=.*(🇦🇷|阿根廷|ARG|argentina))"
 FilterSG: &FilterSG "(?i)(?=.*(🇸🇬|新加坡|狮城|新|SG|SGP|singapore))"
 
 # 代理节点: 可以将自己的节点放在这里
-proxies:
-  - name: "[SS] domain"
-    type: ss
-    server: abaosd.jasidofnbasdfij.com
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: 4nggcF
-    udp: true
+# proxies:
+#   - name: "[SS] domain"
+#     type: ss
+#     server: abaosd.jasidofnbasdfij.com
+#     port: 443
+#     cipher: chacha20-ietf-poly1305
+#     password: 4nggcF
+#     udp: true
 
 # 代理组
 proxy-groups:
