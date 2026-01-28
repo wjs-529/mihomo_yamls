@@ -7,18 +7,17 @@
 ## 📄 配置文件详解 (Details)
 
 ### 📝 mihomo.yaml
-- **大小**: 20.4 KB
+- **大小**: 19.7 KB
 - **链接**: [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/General_Config/echs-top/mihomo.yaml)
 
 #### 📶 网络端口配置 (Ports)
 | 类型 | 端口/地址 | 说明 |
 | :--- | :--- | :--- |
-| SOCKS5 | 9870 | 仅 SOCKS |
-| Controller | 0.0.0.0:9090 | 控制面板 |
+| Controller | 127.0.0.1:9090 | 控制面板 |
 
 
 <details>
-<summary><b>🔎 点击查看策略组架构 (35个)</b></summary>
+<summary><b>🔎 点击查看策略组架构 (33个)</b></summary>
 
 | 策略组 (Group) | 类型 (Type) |
 | :--- | :--- |
@@ -37,7 +36,7 @@
 | 👆 NETFLIX | `select` |
 | 👆 SPOTIFY | `select` |
 | 👆 BILIBILI | `select` |
-| ... | 还有 20 个 |
+| ... | 还有 18 个 |
 
 </details>
 
@@ -58,4 +57,4 @@
 
 | 文件名 | 大小 | 链接 |
 | :--- | :--- | :--- |
-| `mihomo.yaml` | 20.4 KB | [查看](https://github.com/wjs-529/mihomo_yamls/blob/main/General_Config/echs-top/mihomo.yaml) |
+| `mihomo.yaml` | 19.7 KB | [查看](https://github.com/wjs-529/mihomo_yamls/blob/main/General_Config/echs-top/mihomo.yaml) |
