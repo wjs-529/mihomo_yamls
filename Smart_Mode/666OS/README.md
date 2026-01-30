@@ -8,7 +8,7 @@
 
 | 特性 / 文件 | `OneSmart_Config.yaml` | `OneSmart_Lite_Config.yaml` |
 | :--- | :--- | :--- |
-| **文件大小** | 20.2 KB | 12.5 KB |
+| **文件大小** | 20.1 KB | 12.5 KB |
 | **混合端口** | 7893 | 7893 |
 | **控制面板** | 127.0.0.1:9090 | 127.0.0.1:9090 |
 | **运行模式** | rule | rule |
@@ -20,7 +20,7 @@
 ## 📄 配置文件详解 (Details)
 
 ### 📝 OneSmart_Config.yaml
-- **大小**: 20.2 KB
+- **大小**: 20.1 KB
 - **链接**: [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/Smart_Mode/666OS/OneSmart_Config.yaml)
 
 #### 📶 网络端口配置 (Ports)
@@ -136,5 +136,5 @@
 
 | 文件名 | 大小 | 链接 |
 | :--- | :--- | :--- |
-| `OneSmart_Config.yaml` | 20.2 KB | [查看](https://github.com/wjs-529/mihomo_yamls/blob/main/Smart_Mode/666OS/OneSmart_Config.yaml) |
+| `OneSmart_Config.yaml` | 20.1 KB | [查看](https://github.com/wjs-529/mihomo_yamls/blob/main/Smart_Mode/666OS/OneSmart_Config.yaml) |
 | `OneSmart_Lite_Config.yaml` | 12.5 KB | [查看](https://github.com/wjs-529/mihomo_yamls/blob/main/Smart_Mode/666OS/OneSmart_Lite_Config.yaml) |
