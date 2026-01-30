@@ -9,7 +9,7 @@ on:
         description: '选择要更新的类别'
         required: false
         type: choice
-        options: [all, official, general, smart, mobile]
+        options: [all, official, general, smart, mobile, ini]
         default: all
 
 permissions:
@@ -23,9 +23,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Install Tree Tool (for INI docs)
+        if: ${{ github.event.inputs.category == 'all' || github.event.inputs.category == 'ini' || github.event_name == 'schedule' }}
+        run: sudo apt-get install -y tree
+
       - name: Update Configs
         run: |
-          # 1. 赋予脚本执行权限 (关键步骤)
+          # 1. 赋予脚本执行权限
           chmod +x .github/scripts/*.sh
 
           # 2. 定义运行判断逻辑
@@ -41,8 +45,6 @@ jobs:
           }
 
           # 3. 按需执行脚本
-          # 使用 || true 确保即使脚本内部有非零退出码（极少数情况），也不会中断后续步骤
-          
           if should_run "official"; then
             bash .github/scripts/download-official.sh || echo "⚠️ Official update had warnings"
           fi
@@ -59,13 +61,18 @@ jobs:
             bash .github/scripts/download-mobile.sh || echo "⚠️ Mobile update had warnings"
           fi
 
+          # 这里的 download-ini.sh 会将文件下载到 Overwrite/THEINI
+          if should_run "ini"; then
+            bash .github/scripts/download-ini.sh || echo "⚠️ INI update had warnings"
+          fi
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # 强制添加目录，忽略空目录错误
-          git add Official_Examples General_Config Smart_Mode Mobile_Modules || true
+          # 强制添加 THEYAMLS 和 Overwrite 目录 (包含 THEINI 和 THEOPENCLASH)
+          git add THEYAMLS Overwrite || true
 
           # 检查暂存区是否有变化
           if git diff --cached --quiet; then
