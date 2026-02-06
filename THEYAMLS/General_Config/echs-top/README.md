@@ -7,10 +7,10 @@
 ## 📄 配置详情
 
 #### 📝 mihomo.yaml
-- **路径**: `mihomo.yaml` | **大小**: 17.8 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/echs-top/mihomo.yaml)
+- **路径**: `mihomo.yaml` | **大小**: 16.4 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/echs-top/mihomo.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (31个)</summary>
+<summary>🔍 策略组 (27个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -29,10 +29,10 @@
 | 👆 BILIBILI | `select` |
 | 👆 YOUTUBE | `select` |
 | 👆 AI | `select` |
-| 👆 PIXIV | `select` |
-| 👆 GITHUB | `select` |
-| 👆 ONEDRIVE-DL | `select` |
-| 👆 STEAM-CN | `select` |
 | 👆 GOOGLE | `select` |
-| ... | 还有 11 个 |
+| ♻️ URLTEST | `url-test` |
+| 🔧 港澳台&#124;FALLBACK | `fallback` |
+| 🔧 香港&#124;FALLBACK | `fallback` |
+| 🔧 台湾&#124;FALLBACK | `fallback` |
+| ... | 还有 7 个 |
 </details>
