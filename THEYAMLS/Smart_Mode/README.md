@@ -8,13 +8,13 @@
 
 | 特性 | `OneSmart_Lite_Config.yaml` | `OneSmart_Config.yaml` | `clash-fallback-smart-std.yaml` | `clash-all-smart.yaml` | `clash-all-fallback-smart.yaml` | `MihomoSmartProMax.yaml` | `MihomoSmartProPlus.yaml` | `MihomoSmartAIO.yaml` | `THESmart.yaml` | `mihomo_smart.yaml` | `smart.yaml` |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **大小** | 12.5 KB | 20.1 KB | 17.7 KB | 15.1 KB | 18.2 KB | 25.1 KB | 25.7 KB | 32.1 KB | 24.8 KB | 17.6 KB | 13.0 KB |
+| **大小** | 12.5 KB | 20.1 KB | 17.7 KB | 15.1 KB | 18.2 KB | 25.1 KB | 25.7 KB | 32.1 KB | 24.9 KB | 15.4 KB | 13.0 KB |
 | **混合端口** | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 0 | 7890 |
-| **面板地址** | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | - |
+| **面板地址** | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | - | - |
 | **运行模式** | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule |
 | **TUN** | 🚫 | 🚫 | ✅ | ✅ | ✅ | 🚫 | 🚫 | 🚫 | ✅ | ✅ | ✅ |
-| **策略组** | **16** | **31** | **36** | **38** | **57** | **41** | **41** | **69** | **40** | **27** | **28** |
-| **规则数** | **21** | **36** | **42** | **43** | **48** | **45** | **44** | **52** | **43** | **33** | **23** |
+| **策略组** | **16** | **31** | **36** | **38** | **57** | **41** | **41** | **69** | **40** | **19** | **28** |
+| **规则数** | **21** | **36** | **42** | **43** | **48** | **45** | **44** | **52** | **43** | **29** | **23** |
 
 ## 📄 配置详情
 
@@ -174,7 +174,7 @@
 </details>
 
 #### 📝 THESmart.yaml
-- **路径**: `HenryChiao/THESmart.yaml` | **大小**: 24.8 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/Smart_Mode/HenryChiao/THESmart.yaml)
+- **路径**: `HenryChiao/THESmart.yaml` | **大小**: 24.9 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/Smart_Mode/HenryChiao/THESmart.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (40个)</summary>
@@ -208,34 +208,32 @@
 ### 👤 echs-top
 
 #### 📝 mihomo_smart.yaml
-- **路径**: `echs-top/mihomo_smart.yaml` | **大小**: 17.6 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/Smart_Mode/echs-top/mihomo_smart.yaml)
+- **路径**: `echs-top/mihomo_smart.yaml` | **大小**: 15.4 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/Smart_Mode/echs-top/mihomo_smart.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (27个)</summary>
+<summary>🔍 策略组 (19个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
 | 👆 PROXY | `select` |
 | 👆 PROXYDNS | `select` |
-| 👆 AD | `select` |
-| 👆 SPEEDTEST | `select` |
 | 👆 FCM | `select` |
-| 👆 BOTTEST | `select` |
+| 👆 BILIBILI | `select` |
 | 👆 TELEGRAM | `select` |
 | 👆 META | `select` |
 | 👆 TWITTER | `select` |
 | 👆 TIKTOK | `select` |
 | 👆 NETFLIX | `select` |
 | 👆 SPOTIFY | `select` |
-| 👆 BILIBILI | `select` |
-| 👆 YOUTUBE | `select` |
 | 👆 AI | `select` |
 | 👆 GOOGLE | `select` |
-| ♻️ URLTEST | `url-test` |
-| 👆 港澳台&#124;SMART | `smart` |
+| 👆 国外&#124;SMART | `smart` |
 | 👆 香港&#124;SMART | `smart` |
 | 👆 台湾&#124;SMART | `smart` |
-| ... | 还有 7 个 |
+| 👆 新加坡&#124;SMART | `smart` |
+| 👆 日本&#124;SMART | `smart` |
+| 👆 美国&#124;SMART | `smart` |
+| 👆 GLOBAL | `select` |
 </details>
 
 ---

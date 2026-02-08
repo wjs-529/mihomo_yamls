@@ -8,7 +8,7 @@
 
 | 特性 | `MihomoSmartProMax.yaml` | `MihomoSmartProPlus.yaml` | `MihomoSmartAIO.yaml` | `THESmart.yaml` |
 | :--- | :--- | :--- | :--- | :--- |
-| **大小** | 25.1 KB | 25.7 KB | 32.1 KB | 24.8 KB |
+| **大小** | 25.1 KB | 25.7 KB | 32.1 KB | 24.9 KB |
 | **混合端口** | 7893 | 7893 | 7893 | 7893 |
 | **面板地址** | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 |
 | **运行模式** | rule | rule | rule | rule |
@@ -112,7 +112,7 @@
 </details>
 
 #### 📝 THESmart.yaml
-- **路径**: `THESmart.yaml` | **大小**: 24.8 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/Smart_Mode/HenryChiao/THESmart.yaml)
+- **路径**: `THESmart.yaml` | **大小**: 24.9 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/Smart_Mode/HenryChiao/THESmart.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (40个)</summary>
