@@ -302,6 +302,9 @@ jobs:
   # ========================================================================
   # 产物收集和发布到core分支
   # ========================================================================
+  # ========================================================================
+  # 产物收集和发布到core分支
+  # ========================================================================
   publish:
     name: 发布到Core分支
     runs-on: ubuntu-latest
@@ -324,220 +327,151 @@ jobs:
           path: ./artifacts
           merge-multiple: true
 
-      - name: 列出产物目录
-        run: |
-          echo "=== 产物目录结构 ==="
-          find ./artifacts -type f 2>/dev/null | sort || echo "无产物"
-          echo "==================="
-
-      - name: 配置Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: 检出或创建Core分支
-        run: |
-          REPO_URL="https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-          
-          # 检查core分支是否存在
-          if git ls-remote --heads "$REPO_URL" core | grep -q "refs/heads/core"; then
-            echo "Core分支存在，执行检出"
-            git clone --depth=1 --branch=core "$REPO_URL" core-branch
-          else
-            echo "Core分支不存在，创建新分支"
-            # 先克隆main分支
-            git clone --depth=1 "$REPO_URL" core-branch
-            cd core-branch
-            # 清空内容（保留.git）
-            rm -rf *
-            rm -rf .github .gitignore 2>/dev/null || true
-            
-            # 创建初始目录结构
-            mkdir -p sing-box/reF1nd/main
-            mkdir -p sing-box/reF1nd/dev
-            mkdir -p sing-box/SagerNet/release
-            mkdir -p sing-box/SagerNet/dev
-            mkdir -p mihomo/MetaCubeX/meta
-            mkdir -p mihomo/MetaCubeX/alpha
-            mkdir -p mihomo/vernesong/smart
-            
-            # 创建初始README（使用echo避免here-document问题）
-            echo "# Core 核心文件仓库" > README.md
-            echo "" >> README.md
-            echo "自动构建的 sing-box 和 mihomo 核心文件。" >> README.md
-            echo "" >> README.md
-            echo "## 目录结构" >> README.md
-            echo "" >> README.md
-            echo '```' >> README.md
-            echo "sing-box/" >> README.md
-            echo "├── reF1nd/" >> README.md
-            echo "│   ├── main/      # reF1nd-main 分支" >> README.md
-            echo "│   └── dev/       # reF1nd-dev 分支" >> README.md
-            echo "└── SagerNet/" >> README.md
-            echo "    ├── release/   # SagerNet 正式版" >> README.md
-            echo "    └── dev/       # SagerNet 开发版" >> README.md
-            echo "" >> README.md
-            echo "mihomo/" >> README.md
-            echo "├── MetaCubeX/" >> README.md
-            echo "│   ├── meta/      # MetaCubeX 正式版" >> README.md
-            echo "│   └── alpha/     # MetaCubeX 测试版" >> README.md
-            echo "└── vernesong/" >> README.md
-            echo "    └── smart/     # OpenClash Smart版" >> README.md
-            echo '```' >> README.md
-            echo "" >> README.md
-            echo "## 平台支持" >> README.md
-            echo "" >> README.md
-            echo "- **Linux**: amd64-v1, amd64-v3, armv5, armv6, armv7, arm64, mips-softfloat, mipsle-softfloat, mipsle-hardfloat" >> README.md
-            echo "- **Windows**: amd64-v1, amd64-v3, arm64" >> README.md
-            echo "- **macOS**: amd64 (Intel), arm64 (Apple Silicon)" >> README.md
-            echo "- **Android**: arm64, armv7, amd64" >> README.md
-            echo "" >> README.md
-            echo "## 文件格式" >> README.md
-            echo "" >> README.md
-            echo "- \`.tar.gz\` - 标准压缩包（Linux/macOS/Android）" >> README.md
-            echo "- \`.exe\` - Windows可执行文件" >> README.md
-            echo "- \`.upx\` - UPX极限压缩版（仅Linux）" >> README.md
-            echo "" >> README.md
-            echo "## 自动更新" >> README.md
-            echo "" >> README.md
-            echo "本仓库通过 GitHub Actions 每日自动检测上游更新并重新构建。" >> README.md
-            
-            git add .
-            git commit -m "Initial commit: create core branch structure"
-            git branch -M core
-            git push -u origin core
-            echo "已创建并推送core分支"
-          fi
-
-      - name: 重新检出Core分支
-        uses: actions/checkout@v4
-        with:
-          ref: core
-          path: core-branch
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Setup UPX
         uses: crazy-max/ghaction-upx@v3
         with:
           version: latest
           install-only: true
 
-      - name: 压缩UPX文件
+      - name: 压缩 UPX 文件
         run: |
+          # 仅处理标记为 upx 的文件
           find ./artifacts -name "*.upx" -type f -exec upx --best --lzma {} \; 2>/dev/null || true
 
-      - name: 组织产物到Core分支结构
+      - name: 整理产物目录结构
         run: |
-          # 确保目录结构存在
-          mkdir -p ./core-branch/sing-box/reF1nd/main
-          mkdir -p ./core-branch/sing-box/reF1nd/dev
-          mkdir -p ./core-branch/sing-box/SagerNet/release
-          mkdir -p ./core-branch/sing-box/SagerNet/dev
-          mkdir -p ./core-branch/mihomo/MetaCubeX/meta
-          mkdir -p ./core-branch/mihomo/MetaCubeX/alpha
-          mkdir -p ./core-branch/mihomo/vernesong/smart
+          # 创建发布目录
+          mkdir -p ./publish
           
-          # 复制sing-box产物并按平台分类
+          # === 定义目录结构函数 ===
+          prepare_dir() {
+            mkdir -p "./publish/$1"
+          }
+          
+          # 创建基础结构
+          prepare_dir "sing-box/reF1nd/main"
+          prepare_dir "sing-box/reF1nd/dev"
+          prepare_dir "sing-box/SagerNet/release"
+          prepare_dir "sing-box/SagerNet/dev"
+          prepare_dir "mihomo/MetaCubeX/meta"
+          prepare_dir "mihomo/MetaCubeX/alpha"
+          prepare_dir "mihomo/vernesong/smart"
+
+          echo "开始整理 sing-box..."
+          # 移动 sing-box 产物
           for file in ./artifacts/sing-box-*; do
             [[ -f "$file" ]] || continue
-            
             filename=$(basename "$file")
             
-            if [[ "$filename" =~ sing-box-([^-]+)-([^-]+)-(.+)\.(tar\.gz|upx|exe) ]]; then
-              variant="${BASH_REMATCH[1]}"
-              platform="${BASH_REMATCH[2]}"
-              ext="${BASH_REMATCH[4]}"
+            # 解析文件名: sing-box-{variant}-{platform}-{arch}.{ext}
+            # 例如: sing-box-ref1nd-main-linux-amd64.tar.gz
+            # 注意：这里的正则需要根据你实际 build 步骤输出的文件名匹配
+            if [[ "$filename" =~ sing-box-([^-]+-[^-]+)-(.+)\.(tar\.gz|upx|exe) ]]; then
+              variant="${BASH_REMATCH[1]}" # ref1nd-main
+              platform="${BASH_REMATCH[2]}" # linux-amd64
               
-              target_dir=""
+              target_base=""
               case "$variant" in
-                ref1nd-main)
-                  target_dir="./core-branch/sing-box/reF1nd/main"
-                  ;;
-                ref1nd-dev)
-                  target_dir="./core-branch/sing-box/reF1nd/dev"
-                  ;;
-                sagernet-release)
-                  target_dir="./core-branch/sing-box/SagerNet/release"
-                  ;;
-                sagernet-dev)
-                  target_dir="./core-branch/sing-box/SagerNet/dev"
-                  ;;
+                ref1nd-main)      target_base="sing-box/reF1nd/main" ;;
+                ref1nd-dev)       target_base="sing-box/reF1nd/dev" ;;
+                sagernet-release) target_base="sing-box/SagerNet/release" ;;
+                sagernet-dev)     target_base="sing-box/SagerNet/dev" ;;
               esac
               
-              if [[ -n "$target_dir" ]]; then
-                platform_dir="${target_dir}/${platform}"
-                mkdir -p "$platform_dir"
-                cp "$file" "$platform_dir/"
-                echo "已复制: $filename -> $platform_dir/"
+              if [[ -n "$target_base" ]]; then
+                mkdir -p "./publish/${target_base}/${platform}"
+                cp "$file" "./publish/${target_base}/${platform}/"
               fi
             fi
           done
           
-          # 复制mihomo产物并按平台分类
+          echo "开始整理 mihomo..."
+          # 移动 mihomo 产物
           for file in ./artifacts/mihomo-*; do
             [[ -f "$file" ]] || continue
-            
             filename=$(basename "$file")
             
-            if [[ "$filename" =~ mihomo-([^-]+)-([^-]+)-(.+)\.(tar\.gz|upx|exe) ]]; then
-              variant="${BASH_REMATCH[1]}"
-              platform="${BASH_REMATCH[2]}"
-              ext="${BASH_REMATCH[4]}"
+            if [[ "$filename" =~ mihomo-([^-]+)-(.+)\.(tar\.gz|upx|exe) ]]; then
+              variant="${BASH_REMATCH[1]}" # meta
+              platform="${BASH_REMATCH[2]}" # linux-amd64
               
-              target_dir=""
+              target_base=""
               case "$variant" in
-                meta)
-                  target_dir="./core-branch/mihomo/MetaCubeX/meta"
-                  ;;
-                alpha)
-                  target_dir="./core-branch/mihomo/MetaCubeX/alpha"
-                  ;;
-                smart)
-                  target_dir="./core-branch/mihomo/vernesong/smart"
-                  ;;
+                meta)  target_base="mihomo/MetaCubeX/meta" ;;
+                alpha) target_base="mihomo/MetaCubeX/alpha" ;;
+                smart) target_base="mihomo/vernesong/smart" ;;
               esac
               
-              if [[ -n "$target_dir" ]]; then
-                platform_dir="${target_dir}/${platform}"
-                mkdir -p "$platform_dir"
-                cp "$file" "$platform_dir/"
-                echo "已复制: $filename -> $platform_dir/"
+              if [[ -n "$target_base" ]]; then
+                mkdir -p "./publish/${target_base}/${platform}"
+                cp "$file" "./publish/${target_base}/${platform}/"
               fi
             fi
           done
 
-      - name: 生成校验和
+      - name: 生成 Checksum 和 README
         run: |
-          for dir in ./core-branch/sing-box/*/ ./core-branch/mihomo/*/; do
-            [[ -d "$dir" ]] || continue
-            if find "$dir" -type f | grep -q .; then
-              (
-                cd "$dir" || continue
-                find . -type f ! -name "checksums.txt" -exec sha256sum {} \; | sort -k2 > checksums.txt
-                echo "生成校验和: ${dir}checksums.txt"
-              )
-            fi
-          done
-
-      - name: 更新README时间戳
-        run: |
-          # 更新主README
-          sed -i "s/最后更新:.*/最后更新: $(date -u '+%Y-%m-%d %H:%M:%S UTC')/g" ./core-branch/README.md 2>/dev/null || true
+          cd ./publish
           
-          # 更新各变体README
-          for readme in ./core-branch/sing-box/*/README.md ./core-branch/mihomo/*/README.md; do
-            [[ -f "$readme" ]] || continue
-            sed -i "s/最后更新:.*/最后更新: $(date -u '+%Y-%m-%d %H:%M:%S UTC')/g" "$readme"
-          done
+          # 生成校验和
+          echo "生成校验和..."
+          find . -type f \( -name "*.tar.gz" -o -name "*.exe" -o -name "*.upx" \) -exec sha256sum {} \; > global_checksums.txt
+          
+          # 为每个子目录生成独立的 checksums.txt (可选，如果你需要保持原有逻辑)
+          find . -type d -links 2 -exec sh -c 'cd "$1" && sha256sum * > checksums.txt 2>/dev/null || true' _ {} \;
 
-      - name: 提交到Core分支
+          # 生成 README.md
+          cat > README.md <<EOF
+          # Core 核心文件仓库
+
+          自动构建的 sing-box 和 mihomo 核心文件。
+          
+          **最后更新:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+
+          ## 目录结构
+          \`\`\`text
+          sing-box/
+          ├── reF1nd/
+          │   ├── main/      # reF1nd-main 分支
+          │   └── dev/       # reF1nd-dev 分支
+          └── SagerNet/
+              ├── release/   # SagerNet 正式版
+              └── dev/       # SagerNet 开发版
+
+          mihomo/
+          ├── MetaCubeX/
+          │   ├── meta/      # MetaCubeX 正式版
+          │   └── alpha/     # MetaCubeX 测试版
+          └── vernesong/
+              └── smart/     # OpenClash Smart版
+          \`\`\`
+
+          ## 文件格式
+          - \`.tar.gz\` - 标准压缩包
+          - \`.exe\` - Windows可执行文件
+          - \`.upx\` - UPX极限压缩版
+          EOF
+
+      - name: 强制推送到 Core 分支
         run: |
-          cd core-branch
-          git add -A
-          if git diff --cached --quiet; then
-            echo "没有变更需要提交"
-          else
-            git commit -m "Update cores: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-            git push origin core
-            echo "已推送到core分支"
-          fi
+          cd ./publish || exit 1
+          git init
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b core
+          git add .
+          git commit -m "Update Cores: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          
+          # 关键修改：明确指定带 Token 的 Remote URL
+          git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          
+          # 强制推送 (覆盖旧记录)
+          git push -f origin core
+
+      - name: 删除旧的工作流运行记录
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          retain_days: 3
+          keep_minimum_runs: 1
