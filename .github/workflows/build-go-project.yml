@@ -215,7 +215,7 @@ jobs:
             "./artifacts"
 
       - name: 上传产物
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: ${{ inputs.project }}-${{ inputs.variant }}-${{ matrix.platform }}-${{ matrix.arch }}
           path: ./artifacts/*
