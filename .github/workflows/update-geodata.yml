@@ -1,0 +1,139 @@
+name: Update All GeoData Assets
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 20 * * *' # 北京时间 04:00
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/update-geodata.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  process-and-publish:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TZ: Asia/Shanghai
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # --- 步骤 0: 准备历史数据 (用于差异对比) ---
+      - name: Fetch old stats
+        continue-on-error: true
+        run: |
+          # 尝试获取远程 GeoData 分支的 stats.json 用于对比
+          mkdir -p old_data
+          git ls-remote --exit-code --heads origin GeoData
+          if [ $? -eq 0 ]; then
+             git archive --remote=origin GeoData stats.json | tar -x -C old_data || echo "No stats.json found"
+          fi
+
+      # --- 步骤 1: 安装必要工具 ---
+      - name: Setup Go and Tools
+        run: |
+          echo "🛠️ Installing v2dat (Unpack tool)..."
+          # 安装 v2dat，专门用于解包 geoip/geosite
+          go install github.com/urlesistiana/v2dat@latest
+          
+          # 将 Go Bin 加入路径
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # --- 步骤 2: 下载与整理 (保留你原有的逻辑) ---
+      - name: Download and Sort Assets
+        run: |
+          function sort_files() {
+            local author_dir=$1
+            cd "$author_dir" || return
+            mkdir -p geoip geosite asn uncategorized
+            find . -maxdepth 1 -type f | while read file; do
+              filename=$(basename "$file")
+              lower_name=$(echo "$filename" | tr '[:upper:]' '[:lower:]')
+              if [[ "$lower_name" == *"geoip"* ]] || [[ "$lower_name" == *".mmdb"* ]]; then
+                mv "$filename" geoip/
+              elif [[ "$lower_name" == *"geosite"* ]] || [[ "$lower_name" == *"dlc.dat"* ]]; then
+                mv "$filename" geosite/
+              elif [[ "$lower_name" == *"asn"* ]]; then
+                mv "$filename" asn/
+              else
+                mv "$filename" uncategorized/
+              fi
+            done
+            rmdir geoip geosite asn uncategorized 2>/dev/null || true
+            cd - > /dev/null
+          }
+
+          mkdir -p workspace
+          cd workspace
+
+          echo "🚀 Downloading MetaCubeX..."
+          mkdir -p MetaCubeX && gh release download latest --repo MetaCubeX/meta-rules-dat --dir MetaCubeX --pattern "*" --clobber
+          sort_files "$(pwd)/MetaCubeX"
+
+          echo "🚀 Downloading DustinWin..."
+          mkdir -p DustinWin && gh release download mihomo-geodata --repo DustinWin/ruleset_geodata --dir DustinWin --pattern "*" --clobber
+          sort_files "$(pwd)/DustinWin"
+
+          echo "🚀 Downloading NobyDa..."
+          mkdir -p NobyDa && gh release download --repo NobyDa/geoip --dir NobyDa --pattern "*" --clobber
+          sort_files "$(pwd)/NobyDa"
+
+          echo "🚀 Downloading Loyalsoldier..."
+          mkdir -p Loyalsoldier
+          gh release download --repo Loyalsoldier/v2ray-rules-dat --dir Loyalsoldier --pattern "*" --clobber
+          gh release download --repo Loyalsoldier/geoip --dir Loyalsoldier --pattern "*" --clobber
+          sort_files "$(pwd)/Loyalsoldier"
+
+          echo "🚀 Downloading xream..."
+          mkdir -p xream && gh release download --repo xream/geoip --dir xream --pattern "*" --clobber
+          sort_files "$(pwd)/xream"
+
+      # --- 步骤 3: 核心处理 (解包、统计、生成 README) ---
+      - name: Process Data & Generate Report
+        run: |
+          # 运行 Python 脚本处理数据
+          python3 .github/scripts/analyze_geodata.py
+
+      # --- 步骤 4: 推送 (使用你提供的参考逻辑) ---
+      - name: Git push assets to "GeoData" branch
+        run: |
+          # 将生成的内容移动到 push 目录
+          mkdir -p push
+          cp -r workspace/* push/
+          
+          cd push || exit 1
+          
+          # 初始化 git (孤儿分支模式)
+          git init
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # 这里的 -b GeoData 对应你原有的分支名，保持订阅链接不变
+          git checkout -b GeoData
+          
+          git add .
+          git commit -m "Auto Update Assets & Report: $(date +'%Y-%m-%d %H:%M:%S')"
+          
+          git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git push -f origin GeoData
+
+      # --- 步骤 5: 刷新 CDN (参考逻辑) ---
+      - name: Purge jsdelivr CDN
+        continue-on-error: true
+        run: |
+          # 只刷新根目录的 README 和关键 stats.json，避免遍历成千上万个文件导致超时
+          curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@GeoData/README.md"
+          curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@GeoData/stats.json"
+          
+          # 如果需要刷新特定文件，可以在这里添加
