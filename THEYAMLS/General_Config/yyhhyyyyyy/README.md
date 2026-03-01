@@ -8,74 +8,74 @@
 
 | 特性 | `mihomo_multi.yaml` | `mihomo_single.yaml` |
 | :--- | :--- | :--- |
-| **大小** | 17.1 KB | 16.8 KB |
+| **大小** | 12.9 KB | 12.6 KB |
 | **混合端口** | 7897 | 7897 |
 | **面板地址** | - | - |
 | **运行模式** | rule | rule |
 | **TUN** | ✅ | ✅ |
-| **策略组** | **55** | **55** |
+| **策略组** | **33** | **33** |
 | **规则数** | **22** | **22** |
 
 ## 📄 配置详情
 
 #### 📝 mihomo_multi.yaml
-- **路径**: `mihomo_multi.yaml` | **大小**: 17.1 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/yyhhyyyyyy/mihomo_multi.yaml)
+- **路径**: `mihomo_multi.yaml` | **大小**: 12.9 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/yyhhyyyyyy/mihomo_multi.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
 <details>
-<summary>🔍 策略组 (55个)</summary>
+<summary>🔍 策略组 (33个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
-| 👆 🎯 节点选择 | `select` |
+| 👆 🎯节点选择 | `select` |
 | 👆 手动选择 | `select` |
 | 👆 智能选择 | `select` |
-| 👆 ✈️ 电报信息 | `select` |
-| 👆 🤖 AIGC | `select` |
-| 👆 🍎 苹果服务 | `select` |
-| 👆 Ⓜ️ 微软服务 | `select` |
-| 👆 🇭🇰 - Auto | `select` |
-| 👆 🇯🇵 - Auto | `select` |
-| 👆 🇰🇷 - Auto | `select` |
-| 👆 🇸🇬 - Auto | `select` |
-| 👆 🇺🇸 - Auto | `select` |
-| 👆 🇬🇧 - Auto | `select` |
-| 👆 🇫🇷 - Auto | `select` |
-| 👆 🇩🇪 - Auto | `select` |
-| 👆 🇹🇼 - Auto | `select` |
-| ♻️ 🇭🇰 - 自动选择 | `url-test` |
-| ♻️ 🇯🇵 - 自动选择 | `url-test` |
-| ♻️ 🇰🇷 - 自动选择 | `url-test` |
-| ♻️ 🇸🇬 - 自动选择 | `url-test` |
-| ... | 还有 35 个 |
+| 👆 ✈️电报信息 | `select` |
+| 👆 🤖AIGC | `select` |
+| 👆 🍎苹果服务 | `select` |
+| 👆 Ⓜ️微软服务 | `select` |
+| 👆 🇭🇰-Auto | `select` |
+| 👆 🇯🇵-Auto | `select` |
+| 👆 🇸🇬-Auto | `select` |
+| 👆 🇺🇸-Auto | `select` |
+| 👆 🇹🇼-Auto | `select` |
+| ♻️ 🇭🇰-自动选择 | `url-test` |
+| ♻️ 🇯🇵-自动选择 | `url-test` |
+| ♻️ 🇸🇬-自动选择 | `url-test` |
+| ♻️ 🇺🇸-自动选择 | `url-test` |
+| ♻️ 🇹🇼-自动选择 | `url-test` |
+| 🔧 🇭🇰-自动回退 | `fallback` |
+| 🔧 🇯🇵-自动回退 | `fallback` |
+| 🔧 🇸🇬-自动回退 | `fallback` |
+| ... | 还有 13 个 |
 </details>
 
 #### 📝 mihomo_single.yaml
-- **路径**: `mihomo_single.yaml` | **大小**: 16.8 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/yyhhyyyyyy/mihomo_single.yaml)
+- **路径**: `mihomo_single.yaml` | **大小**: 12.6 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/yyhhyyyyyy/mihomo_single.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
 <details>
-<summary>🔍 策略组 (55个)</summary>
+<summary>🔍 策略组 (33个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
-| 👆 🎯 节点选择 | `select` |
+| 👆 🎯节点选择 | `select` |
 | 👆 手动选择 | `select` |
 | 👆 智能选择 | `select` |
-| 👆 ✈️ 电报信息 | `select` |
-| 👆 🤖 AIGC | `select` |
-| 👆 🍎 苹果服务 | `select` |
-| 👆 Ⓜ️ 微软服务 | `select` |
-| 👆 🇭🇰 - Auto | `select` |
-| 👆 🇯🇵 - Auto | `select` |
-| 👆 🇰🇷 - Auto | `select` |
-| 👆 🇸🇬 - Auto | `select` |
-| 👆 🇺🇸 - Auto | `select` |
-| 👆 🇬🇧 - Auto | `select` |
-| 👆 🇫🇷 - Auto | `select` |
-| 👆 🇩🇪 - Auto | `select` |
-| 👆 🇹🇼 - Auto | `select` |
-| ♻️ 🇭🇰 - 自动选择 | `url-test` |
-| ♻️ 🇯🇵 - 自动选择 | `url-test` |
-| ♻️ 🇰🇷 - 自动选择 | `url-test` |
-| ♻️ 🇸🇬 - 自动选择 | `url-test` |
-| ... | 还有 35 个 |
+| 👆 ✈️电报信息 | `select` |
+| 👆 🤖AIGC | `select` |
+| 👆 🍎苹果服务 | `select` |
+| 👆 Ⓜ️微软服务 | `select` |
+| 👆 🇭🇰-Auto | `select` |
+| 👆 🇯🇵-Auto | `select` |
+| 👆 🇸🇬-Auto | `select` |
+| 👆 🇺🇸-Auto | `select` |
+| 👆 🇹🇼-Auto | `select` |
+| ♻️ 🇭🇰-自动选择 | `url-test` |
+| ♻️ 🇯🇵-自动选择 | `url-test` |
+| ♻️ 🇸🇬-自动选择 | `url-test` |
+| ♻️ 🇺🇸-自动选择 | `url-test` |
+| ♻️ 🇹🇼-自动选择 | `url-test` |
+| 🔧 🇭🇰-自动回退 | `fallback` |
+| 🔧 🇯🇵-自动回退 | `fallback` |
+| 🔧 🇸🇬-自动回退 | `fallback` |
+| ... | 还有 13 个 |
 </details>
