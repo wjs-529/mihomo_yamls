@@ -99,7 +99,6 @@ dns:
   use-hosts: true
   use-system-hosts: true
   respect-rules: true
-  direct-nameserver-follow-policy: true
   fake-ip-filter-mode: blacklist
   fake-ip-ttl: 60
   fake-ip-filter: ["localhost","+.lan","+.local","+.arpa","+.ntp.org","captive.apple.com","connectivitycheck.gstatic.com","msftconnecttest.com","msftncsi.com","+.openai.com","+.srv.nintendo.net","+.stun.playstation.net","+.xboxlive.com","report-v2.samsung.japps.cn","rule-set:private"]
@@ -107,10 +106,12 @@ dns:
   direct-nameserver: ["system"]
   default-nameserver: ["223.5.5.5", "119.29.29.29", "114.114.114.114", "180.76.76.76"]
   nameserver: ["https://dns.alidns.com/dns-query", "https://1.1.1.1/dns-query", "https://doh.pub/dns-query", "https://dns.google/dns-query", "https://dns.quad9.net/dns-query", "https://dns.adguard.com/dns-query", "tls://cloudflare-dns.com:853", "tls://dns.google:853"]
-  proxy-server-nameserver: ["https://1.1.1.1/dns-query", "https://dns.google/dns-query", "https://cloudflare-dns.com/dns-query", "https://dns.quad9.net/dns-query", "https://public.dns.iij.jp/dns-query", "tls://cloudflare-dns.com:853", "tls://dns.google:853"]  
+  proxy-server-nameserver: ["https://1.1.1.1/dns-query", "https://dns.google/dns-query", "https://dns.adguard.com/dns-query", "https://cloudflare-dns.com/dns-query", "https://dns.quad9.net/dns-query", "https://public.dns.iij.jp/dns-query", "tls://cloudflare-dns.com:853", "tls://dns.google:853"]  
   fallback: ["https://dns.google/dns-query", "https://1.1.1.1/dns-query", "https://dns.alidns.com/dns-query", "https://public.dns.iij.jp/dns-query", "https://jp.tdns.dev/dns-query", "tls://dns.google:853"]
   fallback-filter: {geoip: true, geoip-code: CN, geosite: [gfw], ipcidr: ["240.0.0.0/4"]}
+  direct-nameserver-follow-policy: true
   nameserver-policy:
+    "geosite:category-ads-all": ["https://dns.adguard.com/dns-query"]
     "rule-set:abroad_dns_cdn": *global-dns
     "rule-set:Google-zj": *global-dns
     "rule-set:OpenAI-zj": *global-dns
@@ -162,9 +163,7 @@ sniffer:
   force-domain: ["+.cloudflare.net","+.akamaized.net","+.akamai.net","+.fastly.net","+.cloudfront.net","+.googlevideo.com","+.googlecdn.com","+.ytimg.com","+.youtube.com","+.netflix.com","+.instagram.com","+.tiktokcdn.com","+.tiktokv.com","+.douyin.com","+.douyincdn.com","+.telegram.org","+.t.me","+.tdesktop.com","+.cdn-telegram.org","+.telegram-cdn.org","+.cdn.telegram.org"]  
   skip-domain: ["localhost","+.lan","+.local","+.arpa","+.invalid","+.test","+.pvp.net","+.riotgames.com","+.openai.com", "+.chat.openai.com", "+.api.openai.com", "geosite:alibaba","geosite:tencent","geosite:cn","rule-set:cn_dns_cdn","rule-set:private","rule-set:direct","rule-set:applications","rule-set:Agora-zj"] 
   skip-src-address: ["127.0.0.0/8","10.0.0.0/8","172.16.0.0/12","192.168.0.0/16","::1/128","fc00::/7","fe80::/10"]
-  skip-dst-address: ["127.0.0.0/8","10.0.0.0/8","172.16.0.0/12","192.168.0.0/16","::1/128","fc00::/7","fe80::/10"]
-
-# 面板按键，代理出口基本都经过🌍全球加速，可以自行设置
+  
 proxy-groups:
   - {name: "🌍全球加速", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png, proxies: ["♻️随机"], include-all: true, exclude-type: direct, filter: "^(.*)", url: https://www.gstatic.com/generate_204, interval: 120, timeout: 5000}
   - {name: "♻️随机", type: url-test, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Bypass.png, include-all: true, exclude-type: direct, filter: "^(.*)", url: "https://www.gstatic.com/generate_204", interval: 120, tolerance: 30, timeout: 5000, hidden: true}
@@ -195,8 +194,6 @@ tunnels:
 
 rules:
   # 1. 去广告
-  - RULE-SET,advertising,REJECT
-  - RULE-SET,reject,REJECT
   - GEOSITE,category-ads-all,REJECT
   # 2. 国外规则集
   - RULE-SET,douyin-zj,🎷抖音
@@ -237,8 +234,6 @@ rules:
   - GEOIP,cloudflare,🌍全球加速,no-resolve
   - GEOIP,cloudfront,🌍全球加速,no-resolve
   - GEOIP,fastly,🌍全球加速,no-resolve
-  - IP-ASN,15169,🌐Google服务,no-resolve
-  - IP-ASN,396982,🌐Google服务,no-resolve
   - IP-ASN,8075,😊微软服务,no-resolve
   - IP-ASN,8070,😊微软服务,no-resolve
   # 4. 国内规则集
@@ -268,8 +263,6 @@ rule-anchor:
   mrs-ipcidr: &mrs-ipcidr {type: http, behavior: ipcidr, interval: 86400, format: mrs}
 
 rule-providers:
-  advertising: {<<: *mrs-ipcidr, url: "https://cdn.jsdelivr.net/gh/SHICHUNHUI88/vps-net-optimize@main/remote-mrs/bx7-AdvertisingLite_ipcidr.mrs"}
-  reject: {<<: *mrs-domain, url: "https://cdn.jsdelivr.net/gh/SHICHUNHUI88/vps-net-optimize@main/remote-mrs/Loy-reject_domain.mrs"}
   douyin-zj: {<<: *class-yaml, url: "https://cdn.jsdelivr.net/gh/SHICHUNHUI88/vps-net-optimize@main/clash/douyin.yaml"}
   TikTok-zj: {<<: *class-yaml, url: "https://cdn.jsdelivr.net/gh/SHICHUNHUI88/vps-net-optimize@main/clash/TikTok.yaml"}
   Telegram-zj: {<<: *class-yaml, url: "https://cdn.jsdelivr.net/gh/SHICHUNHUI88/vps-net-optimize@main/clash/Telegram.yaml"}
