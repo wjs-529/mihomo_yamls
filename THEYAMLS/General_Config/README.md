@@ -8,13 +8,13 @@
 
 | 特性 | `mihomo.yaml` | `config.yaml` | `MihomoPro_Config.yaml` | `OneTouch_Config.yaml` | `config.yaml` | `configfull_NoAd.yaml` | `configfull_lite.yaml` | `configfull.yaml` | `clash-fallback-std.yaml` | `clash-fallback.yaml` | `clash-fallback-dialer.yaml` | `clash-fallback-all.yaml` | `clash-all-fallback.yaml` | `config.yaml` | `config.yaml` | `Clash.yaml` | `MihomoAIO.yaml` | `MihomoProPlus.yaml` | `MihomoProMax.yaml` | `ConfigForClash.yaml` | `config.yaml` | `AIO.yaml` | `AIB.yaml` | `config_lite.yaml` | `config.yaml` | `us_la.yaml` | `Clash-Airport.yaml` | `mihomo_multi.yaml` | `mihomo_single.yaml` | `Clash_Sample.yaml` |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **大小** | 12.4 KB | 18.7 KB | 22.6 KB | 12.4 KB | 28.5 KB | 34.1 KB | 17.7 KB | 34.6 KB | 17.3 KB | 15.9 KB | 16.3 KB | 18.6 KB | 17.2 KB | 12.8 KB | 13.8 KB | 27.3 KB | 30.1 KB | 27.9 KB | 27.4 KB | 49.3 KB | 30.9 KB | 11.1 KB | 11.0 KB | 3.0 KB | 8.2 KB | 19.2 KB | 18.1 KB | 12.9 KB | 12.6 KB | 8.4 KB |
+| **大小** | 12.4 KB | 18.7 KB | 22.6 KB | 12.4 KB | 28.5 KB | 34.1 KB | 17.7 KB | 34.6 KB | 17.3 KB | 15.9 KB | 16.3 KB | 18.6 KB | 17.2 KB | 12.8 KB | 13.8 KB | 27.3 KB | 30.1 KB | 27.9 KB | 27.4 KB | 49.3 KB | 30.9 KB | 10.8 KB | 11.0 KB | 3.0 KB | 8.2 KB | 19.8 KB | 17.9 KB | 12.9 KB | 12.6 KB | 8.4 KB |
 | **混合端口** | 0 | 7892 | 7893 | 7893 | 7893 | 7890 | 7890 | 7890 | 7893 | 7893 | 7893 | 7893 | 7893 | 7890 | 7890 | 7890 | 7893 | 7893 | 7893 | 7892 | 7890 | 7890 | 7890 | 7893 | 7893 | 0 | 0 | 7897 | 7897 | 7892 |
 | **面板地址** | - | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | - | :9090 | :9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | - | - | 127.0.0.1:9092 | 127.0.0.1:9092 | - | - | 0.0.0.0:9090 |
 | **运行模式** | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | Rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule |
 | **TUN** | ✅ | 🚫 | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **策略组** | **18** | **13** | **52** | **15** | **25** | **59** | **47** | **62** | **36** | **34** | **35** | **61** | **53** | **26** | **29** | **27** | **61** | **54** | **54** | **62** | **115** | **24** | **24** | **1** | **18** | **14** | **14** | **33** | **33** | **15** |
-| **规则数** | **18** | **37** | **40** | **23** | **35** | **97** | **38** | **98** | **43** | **43** | **43** | **53** | **42** | **23** | **33** | **68** | **52** | **44** | **45** | **62** | **31** | **34** | **34** | **16** | **26** | **32** | **55** | **22** | **22** | **11** |
+| **策略组** | **18** | **13** | **52** | **15** | **25** | **59** | **47** | **62** | **36** | **34** | **35** | **61** | **53** | **26** | **29** | **27** | **61** | **54** | **54** | **62** | **115** | **23** | **24** | **1** | **18** | **15** | **14** | **33** | **33** | **15** |
+| **规则数** | **18** | **37** | **40** | **23** | **35** | **97** | **38** | **98** | **43** | **43** | **43** | **53** | **42** | **23** | **33** | **68** | **52** | **44** | **45** | **62** | **31** | **34** | **34** | **16** | **26** | **34** | **55** | **22** | **22** | **11** |
 
 ## 📄 配置详情
 
@@ -210,18 +210,17 @@
 ### 👤 JohnsonRan
 
 #### 📝 AIO.yaml
-- **路径**: `JohnsonRan/AIO.yaml` | **大小**: 11.1 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/JohnsonRan/AIO.yaml)
+- **路径**: `JohnsonRan/AIO.yaml` | **大小**: 10.8 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/JohnsonRan/AIO.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (24个)</summary>
+<summary>🔍 策略组 (23个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
 | 👆 节点选择 | `select` |
 | 👆 自建 | `select` |
-| 👆 代理链 | `select` |
+| 👆 Massive Download | `select` |
 | 👆 Speedtest | `select` |
-| 👆 Emby | `select` |
 | 👆 AI | `select` |
 | 👆 Steam | `select` |
 | 👆 Apple | `select` |
@@ -237,7 +236,8 @@
 | 👆 MATCH | `select` |
 | ♻️ 香港 | `url-test` |
 | ♻️ 美国 | `url-test` |
-| ... | 还有 4 个 |
+| ♻️ 新加坡 | `url-test` |
+| ... | 还有 3 个 |
 </details>
 
 #### 📝 AIB.yaml
@@ -473,10 +473,10 @@
 ### 👤 SHICHUNHUI88
 
 #### 📝 us_la.yaml
-- **路径**: `SHICHUNHUI88/us_la.yaml` | **大小**: 19.2 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/us_la.yaml)
+- **路径**: `SHICHUNHUI88/us_la.yaml` | **大小**: 19.8 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/us_la.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (14个)</summary>
+<summary>🔍 策略组 (15个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -487,9 +487,10 @@
 | 👆 🎮国际游戏 | `select` |
 | 👆 💻Telegram | `select` |
 | 👆 🧠OpenAI | `select` |
-| 👆 😊微软服务 | `select` |
+| 👆 💳PayPal | `select` |
 | 👆 🌐Google服务 | `select` |
 | 👆 📺国际流媒体 | `select` |
+| 👆 😊微软服务 | `select` |
 | 👆 🍎苹果服务 | `select` |
 | 👆 ⛩️国内网站 | `select` |
 | 👆 🎯直连 | `select` |
@@ -497,7 +498,7 @@
 </details>
 
 #### 📝 Clash-Airport.yaml
-- **路径**: `SHICHUNHUI88/Clash-Airport.yaml` | **大小**: 18.1 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/Clash-Airport.yaml)
+- **路径**: `SHICHUNHUI88/Clash-Airport.yaml` | **大小**: 17.9 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/Clash-Airport.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (14个)</summary>
