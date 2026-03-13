@@ -193,9 +193,7 @@ tunnels:
   - {network: [tcp, udp], address: 127.0.0.1:7702, target: www.googleapis.com:443, proxy: "🌐Google服务"}
 
 rules:
-  # 1. 去广告
   - GEOSITE,category-ads-all,REJECT
-  # 2. 国外规则集
   - RULE-SET,douyin-zj,🎷抖音
   - RULE-SET,Google-zj,🌐Google服务
   - RULE-SET,OpenAI-zj,🧠OpenAI
@@ -209,11 +207,6 @@ rules:
   - RULE-SET,Netflix,📺国际流媒体
   - RULE-SET,WildRift-zj,🎮国际游戏
   - RULE-SET,games,🎮国际游戏
-  - RULE-SET,abroad_dns_cdn,🌍全球加速
-  - RULE-SET,proxy,🌍全球加速
-  - RULE-SET,tld-not-cn,🌍全球加速
-  - RULE-SET,gfw,🌍全球加速
-  # 3. 国外 GEO
   - GEOSITE,douyin,🎷抖音
   - GEOSITE,category-games-!cn,🎮国际游戏
   - GEOSITE,google,🌐Google服务
@@ -226,9 +219,6 @@ rules:
   - GEOSITE,instagram,📺国际流媒体
   - GEOSITE,whatsapp,📺国际流媒体
   - GEOSITE,twitter,🌍全球加速
-  - GEOSITE,greatfire,🌍全球加速
-  - GEOSITE,gfw,🌍全球加速
-  - GEOSITE,geolocation-!cn,🌍全球加速
   - GEOIP,telegram,💻Telegram,no-resolve
   - GEOIP,google,🌐Google服务,no-resolve
   - GEOIP,cloudflare,🌍全球加速,no-resolve
@@ -236,7 +226,13 @@ rules:
   - GEOIP,fastly,🌍全球加速,no-resolve
   - IP-ASN,8075,😊微软服务,no-resolve
   - IP-ASN,8070,😊微软服务,no-resolve
-  # 4. 国内规则集
+  - RULE-SET,abroad_dns_cdn,🌍全球加速
+  - RULE-SET,proxy,🌍全球加速
+  - RULE-SET,tld-not-cn,🌍全球加速
+  - RULE-SET,gfw,🌍全球加速
+  - GEOSITE,greatfire,🌍全球加速
+  - GEOSITE,gfw,🌍全球加速
+  - GEOSITE,geolocation-!cn,🌍全球加速
   - RULE-SET,cn_dns_cdn,🎯直连
   - RULE-SET,Alibaba,⛩️国内网站
   - RULE-SET,Tencent,⛩️国内网站
@@ -244,14 +240,12 @@ rules:
   - RULE-SET,Agora-zj,🎯直连
   - RULE-SET,private,🎯直连
   - RULE-SET,direct,🎯直连
-  # 5. 国内 GEO
   - GEOSITE,category-games-cn,🎯直连
   - GEOSITE,alibaba,⛩️国内网站
   - GEOSITE,tencent,⛩️国内网站
   - GEOSITE,cn,🎯直连
   - GEOIP,private,🎯直连,no-resolve
   - GEOIP,cn,🎯直连,no-resolve
-  # 6. 兜底
   - GEOIP,!cn,🤡漏网之鱼
   - MATCH,🤡漏网之鱼
 
