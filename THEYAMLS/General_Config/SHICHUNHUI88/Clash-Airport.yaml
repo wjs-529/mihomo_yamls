@@ -1,6 +1,6 @@
 # 1先下载编辑器，苹果用Textastic Code编辑，电脑用VS Code编辑，安卓用Acode编辑
 # 2把我的配置全部复制到编辑器里面，把下面第8行,机场链接 url："这里的机场链接换成自己的机场链接"
-# 3然后保存“名称.yaml”文件格式到本地，导入软件就可以使用了（只支持mihomo核）
+# 3然后保存__名称.yaml_文件格式到本地，导入软件就可以使用了（只支持mihomo核）
 
 # 这是机场配置，可以将下面的机场url链接换成自己的机场链接，保留引号符
 p: &p {type: http, interval: 3600, proxy: "🌍全球加速", health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 300}}
@@ -101,7 +101,7 @@ dns:
   respect-rules: true
   fake-ip-filter-mode: blacklist
   fake-ip-ttl: 60
-  fake-ip-filter: ["localhost","+.lan","+.local","+.arpa","+.ntp.org","captive.apple.com","connectivitycheck.gstatic.com","msftconnecttest.com","msftncsi.com","+.openai.com","+.srv.nintendo.net","+.stun.playstation.net","+.xboxlive.com","report-v2.samsung.japps.cn","rule-set:private"]
+  fake-ip-filter: ["localhost","+.lan","+.local","+.arpa","+.ntp.org","captive.apple.com","connectivitycheck.gstatic.com","msftconnecttest.com","msftncsi.com","openai.*","+.openai.*","+.srv.nintendo.net","+.stun.playstation.net","+.xboxlive.com","report-v2.samsung.japps.cn","rule-set:private"]
   ignore-resolve-fail: true
   direct-nameserver: ["system"]
   default-nameserver: ["223.5.5.5", "119.29.29.29", "114.114.114.114", "180.76.76.76"]
@@ -161,21 +161,21 @@ sniffer:
   parse-pure-ip: true
   sniff: {HTTP: {ports: [80, 8080-8880], override-destination: true}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
   force-domain: ["+.cloudflare.net","+.akamaized.net","+.akamai.net","+.fastly.net","+.cloudfront.net","+.googlevideo.com","+.googlecdn.com","+.ytimg.com","+.youtube.com","+.netflix.com","+.instagram.com","+.tiktokcdn.com","+.tiktokv.com","+.douyin.com","+.douyincdn.com","+.telegram.org","+.t.me","+.tdesktop.com","+.cdn-telegram.org","+.telegram-cdn.org","+.cdn.telegram.org"]  
-  skip-domain: ["localhost","+.lan","+.local","+.arpa","+.invalid","+.test","+.pvp.net","+.riotgames.com","+.openai.com", "+.chat.openai.com", "+.api.openai.com", "geosite:alibaba","geosite:tencent","geosite:cn","rule-set:cn_dns_cdn","rule-set:private","rule-set:direct","rule-set:applications","rule-set:Agora-zj"] 
+  skip-domain: ["localhost","+.lan","+.local","+.arpa","+.invalid","+.test","+.pvp.net","+.riotgames.com","openai.*","+.openai.*", "+.chat.openai.com", "+.api.openai.com", "geosite:alibaba","geosite:tencent","geosite:cn","rule-set:cn_dns_cdn","rule-set:private","rule-set:direct","rule-set:applications","rule-set:Agora-zj"] 
   skip-src-address: ["127.0.0.0/8","10.0.0.0/8","172.16.0.0/12","192.168.0.0/16","::1/128","fc00::/7","fe80::/10"]
   
 proxy-groups:
-  - {name: "🌍全球加速", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png, proxies: ["♻️随机"], include-all: true, exclude-type: direct, filter: "^(.*)", url: https://www.gstatic.com/generate_204, interval: 120, timeout: 5000}
-  - {name: "♻️随机", type: url-test, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Bypass.png, include-all: true, exclude-type: direct, filter: "^(.*)", url: "https://www.gstatic.com/generate_204", interval: 120, tolerance: 30, timeout: 5000, hidden: true}
-  - {name: "🎷抖音", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: "^(.*)"}
-  - {name: "🎬TikTok", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok_2.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: "^(.*)"}
-  - {name: "🎮国际游戏", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Game.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: "^(.*)"}
-  - {name: "💻Telegram", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: "^(.*)"}
-  - {name: "🧠OpenAI", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: "^(.*)"}
-  - {name: "😊微软服务", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: "^(.*)"}
-  - {name: "🌐Google服务", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: "^(.*)"}
-  - {name: "📺国际流媒体", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Facebook.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: "^(.*)"}
-  - {name: "🍎苹果服务", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: "^(.*)"}
+  - {name: "🌍全球加速", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png, proxies: ["♻️随机"], include-all: true, exclude-type: direct, filter: ".*", url: https://www.gstatic.com/generate_204, interval: 120, timeout: 5000}
+  - {name: "♻️随机", type: url-test, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Bypass.png, include-all: true, exclude-type: direct, filter: ".*", url: "https://www.gstatic.com/generate_204", interval: 120, tolerance: 30, timeout: 5000, hidden: true}
+  - {name: "🎷抖音", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: ".*"}
+  - {name: "🎬TikTok", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok_2.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: ".*"}
+  - {name: "🎮国际游戏", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Game.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: ".*"}
+  - {name: "💻Telegram", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: ".*"}
+  - {name: "🧠OpenAI", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: ".*"}
+  - {name: "🌐Google服务", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: ".*"}
+  - {name: "📺国际流媒体", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Facebook.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: ".*"}
+  - {name: "😊微软服务", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: ".*"}
+  - {name: "🍎苹果服务", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png, proxies: ["🌍全球加速","♻️随机","🎯直连"], include-all: true, exclude-type: direct, filter: ".*"}
   - {name: "⛩️国内网站", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png, proxies: ["🎯直连","🌍全球加速"]}
   - {name: "🎯直连", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China_Map.png, proxies: ["DIRECT","🌍全球加速"], url: "http://connect.rom.miui.com/generate_204"}
   - {name: "🤡漏网之鱼", type: select, icon: https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png, proxies: ["🌍全球加速","🎯直连"]}

@@ -85,7 +85,7 @@ dns:
   respect-rules: true
   fake-ip-filter-mode: blacklist
   fake-ip-ttl: 60
-  fake-ip-filter: ["localhost","+.lan","+.local","+.arpa","+.ntp.org","captive.apple.com","connectivitycheck.gstatic.com","msftconnecttest.com","msftncsi.com","+.openai.com","+.srv.nintendo.net","+.stun.playstation.net","+.xboxlive.com","report-v2.samsung.japps.cn","rule-set:private"]
+  fake-ip-filter: ["localhost","+.lan","+.local","+.arpa","+.ntp.org","captive.apple.com","connectivitycheck.gstatic.com","msftconnecttest.com","msftncsi.com","openai.*","+.openai.*","+.srv.nintendo.net","+.stun.playstation.net","+.xboxlive.com","report-v2.samsung.japps.cn","rule-set:private"]
   ignore-resolve-fail: true
   direct-nameserver: ["system"]
   default-nameserver: ["223.5.5.5", "119.29.29.29", "114.114.114.114", "180.76.76.76"]
@@ -131,7 +131,7 @@ sniffer:
   parse-pure-ip: true
   sniff: {HTTP: {ports: [80, 8080-8880], override-destination: true}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
   force-domain: ["+.cloudflare.net","+.akamaized.net","+.akamai.net","+.fastly.net","+.cloudfront.net","+.googlevideo.com","+.googlecdn.com","+.ytimg.com","+.youtube.com","+.netflix.com","+.instagram.com","+.tiktokcdn.com","+.tiktokv.com","+.douyin.com","+.douyincdn.com","+.telegram.org","+.t.me","+.tdesktop.com","+.cdn-telegram.org","+.telegram-cdn.org","+.cdn.telegram.org"]  
-  skip-domain: ["localhost","+.lan","+.local","+.arpa","+.invalid","+.test","+.pvp.net","+.riotgames.com","+.openai.com","rule-set:Alibaba","rule-set:Tencent","rule-set:cn-domain","rule-set:cn_dns_cdn","rule-set:private","rule-set:category-games-cn"]
+  skip-domain: ["localhost","+.lan","+.local","+.arpa","+.invalid","+.test","+.pvp.net","+.riotgames.com","openai.*","+.openai.*","rule-set:Alibaba","rule-set:Tencent","rule-set:cn-domain","rule-set:cn_dns_cdn","rule-set:private","rule-set:category-games-cn"]
   skip-src-address: ["127.0.0.0/8","10.0.0.0/8","172.16.0.0/12","192.168.0.0/16","::1/128","fc00::/7","fe80::/10"]
 
 proxies:
