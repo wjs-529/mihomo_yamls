@@ -8,18 +8,18 @@
 
 | 特性 | `us_la.yaml` | `Clash-Airport.yaml` |
 | :--- | :--- | :--- |
-| **大小** | 19.8 KB | 17.9 KB |
+| **大小** | 19.7 KB | 17.9 KB |
 | **混合端口** | 0 | 0 |
 | **面板地址** | 127.0.0.1:9092 | 127.0.0.1:9092 |
 | **运行模式** | rule | rule |
 | **TUN** | ✅ | ✅ |
 | **策略组** | **15** | **14** |
-| **规则数** | **34** | **55** |
+| **规则数** | **37** | **55** |
 
 ## 📄 配置详情
 
 #### 📝 us_la.yaml
-- **路径**: `us_la.yaml` | **大小**: 19.8 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/us_la.yaml)
+- **路径**: `us_la.yaml` | **大小**: 19.7 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/us_la.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (15个)</summary>
@@ -38,7 +38,7 @@
 | 👆 📺国际流媒体 | `select` |
 | 👆 😊微软服务 | `select` |
 | 👆 🍎苹果服务 | `select` |
-| 👆 ⛩️国内网站 | `select` |
+| 👆 ⛩️阿里腾讯 | `select` |
 | 👆 🎯直连 | `select` |
 | 👆 🤡漏网之鱼 | `select` |
 </details>
