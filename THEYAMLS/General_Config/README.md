@@ -8,13 +8,13 @@
 
 | 特性 | `Clash-Airport.yaml` | `us_la.yaml` | `Clash_Sample.yaml` | `config.yaml` | `mihomo.yaml` | `Clash.yaml` | `ConfigForClash.yaml` | `config.yaml` | `config.yaml` | `config.yaml` | `config.yaml` | `clash-all-fallback.yaml` | `clash-fallback-all.yaml` | `clash-fallback-std.yaml` | `clash-fallback-dialer.yaml` | `clash-fallback.yaml` | `OneTouch_Config.yaml` | `MihomoPro_Config.yaml` | `mihomo_multi.yaml` | `mihomo_single.yaml` | `configfull.yaml` | `configfull_NoAd.yaml` | `configfull_lite.yaml` | `config_lite.yaml` | `config.yaml` | `AIO.yaml` | `AIB.yaml` | `MihomoAIO.yaml` | `MihomoProPlus.yaml` | `MihomoProMax.yaml` |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **大小** | 17.9 KB | 19.7 KB | 8.4 KB | 31.3 KB | 13.9 KB | 27.3 KB | 49.3 KB | 28.5 KB | 12.8 KB | 13.8 KB | 18.7 KB | 17.2 KB | 18.6 KB | 17.3 KB | 16.3 KB | 15.9 KB | 12.4 KB | 22.6 KB | 12.9 KB | 12.6 KB | 34.6 KB | 34.1 KB | 17.7 KB | 3.0 KB | 8.2 KB | 10.8 KB | 11.0 KB | 30.1 KB | 27.9 KB | 27.4 KB |
-| **混合端口** | 0 | 0 | 7892 | 7890 | 0 | 7890 | 7892 | 7893 | 7890 | 7890 | 7892 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7897 | 7897 | 7890 | 7890 | 7890 | 7893 | 7893 | 7890 | 7890 | 7893 | 7893 | 7893 |
+| **大小** | 17.5 KB | 18.5 KB | 8.4 KB | 31.7 KB | 13.9 KB | 27.3 KB | 49.3 KB | 28.5 KB | 12.8 KB | 13.8 KB | 18.7 KB | 17.2 KB | 18.6 KB | 17.3 KB | 16.3 KB | 15.9 KB | 12.4 KB | 22.6 KB | 12.9 KB | 12.6 KB | 34.6 KB | 34.1 KB | 17.7 KB | 3.0 KB | 8.2 KB | 10.8 KB | 11.0 KB | 30.1 KB | 27.9 KB | 27.4 KB |
+| **混合端口** | - | - | 7892 | 7890 | 0 | 7890 | 7892 | 7893 | 7890 | 7890 | 7892 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7897 | 7897 | 7890 | 7890 | 7890 | 7893 | 7893 | 7890 | 7890 | 7893 | 7893 | 7893 |
 | **面板地址** | 127.0.0.1:9092 | 127.0.0.1:9092 | 0.0.0.0:9090 | 127.0.0.1:9090 | - | :9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | - | :9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | - | - | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | - | - | 0.0.0.0:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 |
 | **运行模式** | rule | rule | rule | rule | rule | Rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule |
 | **TUN** | ✅ | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 | ✅ | ✅ | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 | 🚫 |
-| **策略组** | **14** | **15** | **15** | **115** | **20** | **27** | **62** | **25** | **26** | **29** | **13** | **53** | **61** | **36** | **35** | **34** | **15** | **52** | **33** | **33** | **62** | **59** | **47** | **1** | **18** | **23** | **24** | **61** | **54** | **54** |
-| **规则数** | **55** | **37** | **11** | **32** | **21** | **68** | **62** | **35** | **23** | **33** | **37** | **42** | **53** | **43** | **43** | **43** | **23** | **40** | **22** | **22** | **98** | **97** | **38** | **16** | **26** | **34** | **34** | **52** | **44** | **45** |
+| **策略组** | **23** | **15** | **15** | **115** | **20** | **27** | **62** | **25** | **26** | **29** | **13** | **53** | **61** | **36** | **35** | **34** | **15** | **52** | **33** | **33** | **62** | **59** | **47** | **1** | **18** | **23** | **24** | **61** | **54** | **54** |
+| **规则数** | **36** | **34** | **11** | **32** | **21** | **68** | **62** | **35** | **23** | **33** | **37** | **42** | **53** | **43** | **43** | **43** | **23** | **40** | **22** | **22** | **98** | **97** | **38** | **16** | **26** | **34** | **34** | **52** | **44** | **45** |
 
 ## 📄 配置详情
 
@@ -473,31 +473,38 @@
 ### 👤 SHICHUNHUI88
 
 #### 📝 Clash-Airport.yaml
-- **路径**: `SHICHUNHUI88/Clash-Airport.yaml` | **大小**: 17.9 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/Clash-Airport.yaml)
+- **路径**: `SHICHUNHUI88/Clash-Airport.yaml` | **大小**: 17.5 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/Clash-Airport.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (14个)</summary>
+<summary>🔍 策略组 (23个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
 | 👆 🌍全球加速 | `select` |
-| ♻️ ♻️随机 | `url-test` |
 | 👆 🎷抖音 | `select` |
 | 👆 🎬TikTok | `select` |
 | 👆 🎮国际游戏 | `select` |
 | 👆 💻Telegram | `select` |
 | 👆 🧠OpenAI | `select` |
+| 👆 💳PayPal | `select` |
 | 👆 🌐Google服务 | `select` |
 | 👆 📺国际流媒体 | `select` |
 | 👆 😊微软服务 | `select` |
 | 👆 🍎苹果服务 | `select` |
-| 👆 ⛩️国内网站 | `select` |
+| 👆 📹B站 | `select` |
+| 👆 📕小红书 | `select` |
+| 👆 ⛩️阿里腾讯 | `select` |
 | 👆 🎯直连 | `select` |
 | 👆 🤡漏网之鱼 | `select` |
+| ♻️ 🇭🇰香港随机 | `url-test` |
+| ♻️ 🇹🇼台湾随机 | `url-test` |
+| ♻️ 🇯🇵日本随机 | `url-test` |
+| ♻️ 🇸🇬新加坡随机 | `url-test` |
+| ... | 还有 3 个 |
 </details>
 
 #### 📝 us_la.yaml
-- **路径**: `SHICHUNHUI88/us_la.yaml` | **大小**: 19.7 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/us_la.yaml)
+- **路径**: `SHICHUNHUI88/us_la.yaml` | **大小**: 18.5 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/us_la.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (15个)</summary>
@@ -846,7 +853,7 @@
 ### 👤 wanswu
 
 #### 📝 config.yaml
-- **路径**: `wanswu/config.yaml` | **大小**: 31.3 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/wanswu/config.yaml)
+- **路径**: `wanswu/config.yaml` | **大小**: 31.7 KB | [查看源码](https://github.com/wjs-529/mihomo_yamls/blob/main/THEYAMLS/General_Config/wanswu/config.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (115个)</summary>
